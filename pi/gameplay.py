@@ -1,4 +1,5 @@
 from board import Board
+from board import PieceType
 
 
 class State:
@@ -84,6 +85,17 @@ class StateMachine:
 
         positions = active_moves
         chess_board.set_piece(coord, active_piece)
+
+        if active_piece.piece_type == PieceType.PAWN:
+            if active_piece.is_black == True:
+                if coord[0] == 7:
+                    active_piece.piece_type = PieceType.QUEEN
+
+            else:
+                if coord[0] == 1:
+                    active_piece.piece_type = PieceType.QUEEN
+
+
 
         if coord != active_location:
             active_piece.moved = True
