@@ -88,11 +88,11 @@ class StateMachine:
 
         # here is where the pawn upgrade occurs
         if active_piece.piece_type == PieceType.PAWN:
-            if active_piece.is_black == True:
-                if coord[0] == 7:
+            if active_piece.is_black:
+                if coord[0] == 0:
                     active_piece.piece_type = PieceType.QUEEN
             else:
-                if coord[0] == 1:
+                if coord[0] == 7:
                     active_piece.piece_type = PieceType.QUEEN
 
         if coord != active_location:
